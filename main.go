@@ -6,6 +6,14 @@ import (
 	"net/http"
 )
 
+type wine struct {
+	producerName string
+	name         string
+	region       string
+	expertRating int
+	description  string
+}
+
 func winelistHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("This is the winelist API")
 }
