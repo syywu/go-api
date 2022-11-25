@@ -9,20 +9,20 @@ import (
 )
 
 type Wine struct {
-	producerName string `json:"producerName`
-	name         string `json:"name`
-	region       string `json"region`
-	expertRating int    `json:"rating"`
-	description  string `json:"desc"`
+	Producer    string
+	Name        string
+	Region      string
+	Rating      int
+	Description string
 }
 
 var Wines = []Wine{
 	{
-		producerName: "Olivier Leflaive",
-		name:         "St Aubin 1er Cru Dents de Chien",
-		region:       "France",
-		expertRating: 92,
-		description:  "Gorgeous nose of buttery lemon, orange zest, honeysuckle, vanilla and melon. The texture is crisp and refreshing, with a vanilla caramel density shot through with lime. Creaminess and oak underpin the fruit.",
+		Producer:    "Olivier Leflaive",
+		Name:        "St Aubin 1er Cru Dents de Chien",
+		Region:      "France",
+		Rating:      92,
+		Description: "Gorgeous nose of buttery lemon, orange zest, honeysuckle, vanilla and melon. The texture is crisp and refreshing, with a vanilla caramel density shot through with lime. Creaminess and oak underpin the fruit.",
 	},
 }
 
