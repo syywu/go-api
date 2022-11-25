@@ -27,7 +27,9 @@ var Wines = []Wine{
 }
 
 func winelistHandler(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("This is the winelist API")
+	w.Header().Add("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(Wines)
 }
 
 func main() {
