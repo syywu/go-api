@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 type wine struct {
@@ -19,7 +21,8 @@ func winelistHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/winelist", winelistHandler)
+	router := mux.NewRouter()
+	router.HandleFunc("/winelist", winelistHandler)
 	log.Println("API is running")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
