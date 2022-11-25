@@ -28,4 +28,8 @@ func AddWine(w http.ResponseWriter, r *http.Request) {
 	mocks.Wines = append(mocks.Wines, wine)
 
 	// send back 201 status code
+	w.Header().Add("Content-Type", "applicatopns/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode("Created")
+
 }
