@@ -11,7 +11,7 @@ import (
 func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/winelist", handlers.GetAllWines).Methods(http.MethodGet)
-	router.HandleFunc("/winelist", AddWine).Methods(http.MethodPost)
+	router.HandleFunc("/winelist", handlers.AddWine).Methods(http.MethodPost)
 
 	log.Println("API is running")
 	err := http.ListenAndServe(":8080", router)
