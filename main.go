@@ -24,7 +24,7 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/winelist", winelistHandler)
 	log.Println("API is running")
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", router)
 	if err != nil {
 		panic(err)
 	}
