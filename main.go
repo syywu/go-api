@@ -8,12 +8,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type wine struct {
-	producerName string
-	name         string
-	region       string
-	expertRating int
-	description  string
+type Wine struct {
+	producerName string `json:"producerName`
+	name         string `json:"name`
+	region       string `json"region`
+	expertRating int    `json:"rating"`
+	description  string `json:"desc"`
 }
 
 func winelistHandler(w http.ResponseWriter, r *http.Request) {
