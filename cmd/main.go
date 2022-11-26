@@ -12,7 +12,7 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/winelist", handlers.GetAllWines).Methods(http.MethodGet)
 	router.HandleFunc("/winelist/{id}", handlers.GetWineById).Methods(http.MethodGet)
-	router.HandleFunc("/winelist/{id}", handlers.UpdateWine).Methods(http.MethodPatch)
+	router.HandleFunc("/winelist/{id}", handlers.UpdateWine).Methods(http.MethodPut)
 	router.HandleFunc("/winelist", handlers.AddWine).Methods(http.MethodPost)
 
 	log.Println("API is running")
