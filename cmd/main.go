@@ -14,6 +14,7 @@ func main() {
 	router.HandleFunc("/winelist/{id}", handlers.GetWineById).Methods(http.MethodGet)
 	router.HandleFunc("/winelist/{id}", handlers.UpdateWine).Methods(http.MethodPut)
 	router.HandleFunc("/winelist", handlers.AddWine).Methods(http.MethodPost)
+	router.HandleFunc("/winelist/{id}", handlers.DeleteWine).Methods(http.MethodDelete)
 
 	log.Println("API is running")
 	err := http.ListenAndServe(":8080", router)
