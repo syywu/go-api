@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 
 	"github.com/syywu/go-api.git/pkg/mocks"
@@ -23,6 +24,7 @@ func AddWine(w http.ResponseWriter, r *http.Request) {
 	json.Unmarshal(body, &wine)
 
 	// add to wines []
+	wine.Id = rand.Intn(100)
 	mocks.Wines = append(mocks.Wines, wine)
 
 	// send back 201 status code
