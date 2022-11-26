@@ -12,7 +12,7 @@ import (
 func GetWineById(w http.ResponseWriter, r *http.Request) {
 	// read id
 	vars := mux.Vars(r)
-	id, _ := strconv.Atoi(vars["id"])
+	id, _ := strconv.Atoi(vars["Id"])
 
 	// iterate over mock.wines
 	for _, wine := range mocks.Wines {
