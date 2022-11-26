@@ -15,7 +15,7 @@ import (
 func UpdateWine(w http.ResponseWriter, r *http.Request) {
 	// read dynamic id
 	vars := mux.Vars(r)
-	id, _ := strconv.Atoi(vars["Id"])
+	id, _ := strconv.Atoi(vars["id"])
 
 	//read req body
 	defer r.Body.Close()
