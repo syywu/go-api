@@ -1,7 +1,7 @@
 package models
 
 type Wine struct {
-	Id          int    `json:"id"`
+	Id          int    `json:"id" gorm:"primaryKey"`
 	Producer    string `json:"producer"`
 	Name        string `json:"name"`
 	Region      string `json:"region"`
