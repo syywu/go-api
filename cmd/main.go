@@ -5,8 +5,13 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/syywu/go-api.git/initialiser"
 	"github.com/syywu/go-api.git/pkg/handlers"
 )
+
+func init() {
+	initialiser.LoadEnvVariables()
+}
 
 func main() {
 	router := mux.NewRouter()
