@@ -11,6 +11,7 @@ import (
 
 func init() {
 	initialiser.LoadEnvVariables()
+	initialiser.Connection()
 }
 
 func main() {
