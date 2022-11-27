@@ -1,10 +1,10 @@
 package models
 
 type Wine struct {
-	Id          int
-	Producer    string
-	Name        string
-	Region      string
-	Rating      int
-	Description string
+	Id          int    `json:"id"`
+	Producer    string `json:"producer"`
+	Name        string `json:"name"`
+	Region      string `json:"region"`
+	Rating      int    `json:"rating"`
+	Description string `json:"description"`
 }
