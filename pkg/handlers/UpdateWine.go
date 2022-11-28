@@ -12,7 +12,7 @@ import (
 	"github.com/syywu/go-api.git/pkg/models"
 )
 
-func UpdateWine(w http.ResponseWriter, r *http.Request) {
+func (h handler) UpdateWine(w http.ResponseWriter, r *http.Request) {
 	// read dynamic id
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])

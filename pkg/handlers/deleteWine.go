@@ -9,7 +9,7 @@ import (
 	"github.com/syywu/go-api.git/pkg/mocks"
 )
 
-func DeleteWine(w http.ResponseWriter, r *http.Request) {
+func (h handler) DeleteWine(w http.ResponseWriter, r *http.Request) {
 	// read dynamic id
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])

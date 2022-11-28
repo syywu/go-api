@@ -9,7 +9,7 @@ import (
 	"github.com/syywu/go-api.git/pkg/mocks"
 )
 
-func GetWineById(w http.ResponseWriter, r *http.Request) {
+func (h handler) GetWineById(w http.ResponseWriter, r *http.Request) {
 	// read id
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])
