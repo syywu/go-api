@@ -3,13 +3,14 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/syywu/go-api.git/initialiser"
 	"github.com/syywu/go-api.git/pkg/handlers"
 )
 
-func Init() {
+func init() {
 	initialiser.LoadEnvVariables()
 	initialiser.Connection()
 }
@@ -25,7 +26,7 @@ func main() {
 	router.HandleFunc("/winelist/{id}", h.DeleteWine).Methods(http.MethodDelete)
 
 	log.Println("API is running")
-	err := http.ListenAndServe(":8080", router)
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), router)
 	if err != nil {
 		panic(err)
 	}
