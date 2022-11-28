@@ -9,17 +9,19 @@ import (
 	"github.com/syywu/go-api.git/pkg/handlers"
 )
 
-func init() {
+func Init() {
 	initialiser.LoadEnvVariables()
 	initialiser.Connection()
 }
 
 func main() {
+	DB := initialiser.Connection()
+	h := handlers.New(DB)
 	router := mux.NewRouter()
 	router.HandleFunc("/winelist", handlers.GetAllWines).Methods(http.MethodGet)
 	router.HandleFunc("/winelist/{id}", handlers.GetWineById).Methods(http.MethodGet)
 	router.HandleFunc("/winelist/{id}", handlers.UpdateWine).Methods(http.MethodPut)
-	router.HandleFunc("/winelist", handlers.AddWine).Methods(http.MethodPost)
+	router.HandleFunc("/winelist", h.AddWine).Methods(http.MethodPost)
 	router.HandleFunc("/winelist/{id}", handlers.DeleteWine).Methods(http.MethodDelete)
 
 	log.Println("API is running")

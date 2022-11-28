@@ -11,7 +11,7 @@ import (
 	"github.com/syywu/go-api.git/pkg/models"
 )
 
-func AddWine(w http.ResponseWriter, r *http.Request) {
+func (h handler) AddWine(w http.ResponseWriter, r *http.Request) {
 	// read req body
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)

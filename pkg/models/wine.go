@@ -1,6 +1,7 @@
 package models
 
 type Wine struct {
+	// gorm.Model
 	Id          int    `json:"id" gorm:"primaryKey"`
 	Producer    string `json:"producer"`
 	Name        string `json:"name"`
