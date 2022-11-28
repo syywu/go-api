@@ -2,11 +2,12 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/syywu/go-api.git/pkg/mocks"
+	"github.com/syywu/go-api.git/pkg/models"
 )
 
 func (h handler) GetWineById(w http.ResponseWriter, r *http.Request) {
@@ -14,13 +15,14 @@ func (h handler) GetWineById(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])
 
-	// iterate over mock.wines
-	for _, wine := range mocks.Wines {
-		if wine.Id == id {
-			// if the same then return wine
-			w.WriteHeader(http.StatusOK)
-			w.Header().Add("Content-Type", "application/json")
-			json.NewEncoder(w).Encode(wine)
-		}
+	var wine models.Wine
+
+	if res := h.DB.First(&wine, id); res.Error != nil {
+		fmt.Println(res.Error)
 	}
+
+	w.WriteHeader(http.StatusOK)
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(wine)
+
 }
