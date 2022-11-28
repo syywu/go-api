@@ -9,13 +9,13 @@ import (
 )
 
 func (h handler) GetAllWines(w http.ResponseWriter, r *http.Request) {
-	var wine []models.Wine
+	var wines []models.Wine
 
-	if res := h.DB.Find(&wine); res.Error != nil {
+	if res := h.DB.Find(&wines); res.Error != nil {
 		fmt.Println(res.Error)
 	}
 
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(&wine)
+	json.NewEncoder(w).Encode(&wines)
 }
