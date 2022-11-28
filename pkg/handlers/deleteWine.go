@@ -2,11 +2,12 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/syywu/go-api.git/pkg/mocks"
+	"github.com/syywu/go-api.git/pkg/models"
 )
 
 func (h handler) DeleteWine(w http.ResponseWriter, r *http.Request) {
@@ -14,15 +15,17 @@ func (h handler) DeleteWine(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, _ := strconv.Atoi(vars["id"])
 
-	// loops over mocks
-	for index, wine := range mocks.Wines {
-		if wine.Id == id {
-			// send response and delete book
-			mocks.Wines = append(mocks.Wines[:index], mocks.Wines[index+1:]...)
+	// find first ID then delete thay book
+	var wine models.Wine
 
-			w.Header().Add("Content-Type", "application/json")
-			w.WriteHeader(http.StatusOK)
-			json.NewEncoder(w).Encode("Deleted")
-		}
+	if res := h.DB.First(&wine, id); res.Error != nil {
+		fmt.Println(res.Error)
 	}
+
+	h.DB.Delete(&wine)
+
+	w.Header().Add("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode("Deleted")
+
 }
