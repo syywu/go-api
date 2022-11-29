@@ -8,12 +8,12 @@ The Winelist API is a RESTful API that simply record all the good-tasting wines.
 
 ## Existing Routes
 
-| Method | Path        | Additional Info | Result                      |
-| ------ | ----------- | --------------- | --------------------------- |
-| GET    | /winelist   |                 | all wines                   |
-| GET    | /books/{id} |                 | get wine by a particular ID |
-| POST   | /books      | { body }        | create a new wine           |
-| PUT    | /books/{id} | { body }        | update wine by ID           |
-| DELETE | /books/{id} |                 | delete wine by ID           |
+| Method | Path           | Additional Info | Result                      |
+| ------ | -------------- | --------------- | --------------------------- |
+| GET    | /winelist      |                 | all wines                   |
+| GET    | /winelist/{id} |                 | get wine by a particular ID |
+| POST   | /winelist      | { body }        | create a new wine           |
+| PUT    | /winelist/{id} | { body }        | update wine by ID           |
+| DELETE | /winelist/{id} |                 | delete wine by ID           |
 
 <br>
