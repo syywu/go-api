@@ -6,17 +6,16 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 	"github.com/syywu/go-api.git/initialiser"
 	"github.com/syywu/go-api.git/pkg/handlers"
 )
 
-func init() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-}
+// func init() {
+// 	err := godotenv.Load()
+// 	if err != nil {
+// 		log.Fatal("Error loading .env file")
+// 	}
+// }
 
 func main() {
 	DB := initialiser.Connection()
